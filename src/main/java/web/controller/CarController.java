@@ -22,8 +22,7 @@ public class CarController {
 
     @GetMapping("/cars")
     public String cars(@RequestParam(value = "count", defaultValue = "5") int count, Model model) {
-        List<Car> shortenedList = (count >= 5) ? carService.showCars(5) : carService.showCars(count);
-        model.addAttribute("cars", shortenedList);
+        model.addAttribute("cars", carService.showCars(count));
         return "cars";
     }
 }

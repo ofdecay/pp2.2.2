@@ -21,7 +21,10 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public List<Car> showCars(int count) {
-        List<Car> newList = listOfCars.stream().limit(count).toList();
-        return newList;
+        if (count >= 5) {
+            return listOfCars;
+        } else {
+            return listOfCars.stream().limit(count).toList();
+        }
     }
 }
